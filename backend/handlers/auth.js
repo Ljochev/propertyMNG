@@ -130,6 +130,14 @@ const getAllUserEmailsSorted = async (req, res) => {
     }
 };
 
+const hello = async (req, res) => {
+    try {
+        return res.status(200).send("I'm in hello function");
+    } catch (error) {
+    return res.status(500).send("Internal server error");
+    }
+}
+
     module.exports = {
         createNewUser,
         login,
@@ -137,4 +145,5 @@ const getAllUserEmailsSorted = async (req, res) => {
         resetPassword,
         forgotPassword,
         getAllUserEmailsSorted,
+        hello,
     };
