@@ -35,12 +35,12 @@ app.use(
 "/api/user/login",
 "/api/user/reset_password",
 "/api/user/forgot_password",
-"/hello",
+"/",
         ],
     })
 );
 //auth user routs
-app.get("/hello", hello);
+app.get("/", hello);
 app.get("/api/user/refresh-token", refreshToken);
 app.post("/api/user/register", createNewUser);
 app.post("/api/user/login", login);
