@@ -4,24 +4,9 @@ const accountSchema = mongoose.Schema({
 email: String,
 password: String,
 fullName: String,
-wrongPassword: 
-  {
-   type: Number,
-   default: 0,
-  },
-  succesfullLog: 
-  {
-    type: Number,
-    default: 0,
-   },
-  resetPassword: 
-  {
-    type: Number,
-    default: 0,
-   },
 });
 
-const Account = mongoose.model("Account", accountSchema, "Accounts");
+const Account = mongoose.model("Account", accountSchema, "accounts");
 
 const create = async (data) => {
 const newAccount = new Account(data);

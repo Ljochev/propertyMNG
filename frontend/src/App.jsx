@@ -1,33 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { Route, Routes, useNavigate } from 'react-router-dom'
+import LoginPage from './pages/LoginPage'
+import HomePage from './pages/HomePage'
+import { useEffect } from 'react'
+import { useJwt } from "react-jwt";
+import { jwtDecode } from "jwt-decode";
+import ProtectedRoute from './pages/ProtectedRoute'
+import ShowData from './pages/ShowData'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { isExpired } = useJwt(localStorage.getItem('jwt_token'));
+  console.log(isExpired)
+  const navigate = useNavigate()
+  useEffect(() => {
+    // let token = localStorage.getItem('jwt_token');
+    // let decodedToken = jwtDecode(token);
+    // console.log("Decoded Token", decodedToken);
+    // let currentDate = new Date();
+  
+    // JWT exp is in seconds
+    // if (decodedToken.exp * 1000 < currentDate.getTime()) {
+    //   console.log("Token expired.");
+    // } else {
+    //   console.log("Valid token");   
+    //   result = true;
+    // }
+
+  //   const jwt_token = localStorage.getItem('jwt_token')
+  //   if(jwt_token && !isExpired){
+  //     navigate('/')
+  //   } else {
+  //     navigate('/login')
+  //     localStorage.removeItem('jwt_token')
+  //   }
+  // }, [isExpired])
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Routes>
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/' element={
+        // <ProtectedRoute>
+          // <HomePage />
+        // </ProtectedRoute>
+        <ShowData />
+        } />
+{/* 
+<Route path='/about' element={
+        <ProtectedRoute>
+          <AboutPage />
+        </ProtectedRoute>
+        } /> */}
+      </Routes>
     </>
   )
 }

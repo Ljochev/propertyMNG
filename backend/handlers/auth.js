@@ -57,7 +57,7 @@ const login = async (req, res) => {
             fullname: account.fullname,
             email: account.email,
             id: account._id,
-            exp: new Date().getTime() / 1000 + 7 * 24 * 60 * 60,
+            exp: new Date().getTime() / 1000 + 60 * 60,
         };
         const token = jwt.sign(paylod, `${process.env.jwt_secret}`);
         if (token) {
@@ -130,14 +130,6 @@ const getAllUserEmailsSorted = async (req, res) => {
     }
 };
 
-const hello = async (req, res) => {
-    try {
-        return res.status(200).send("I'm in hello function");
-    } catch (error) {
-    return res.status(500).send("Internal server error");
-    }
-}
-
     module.exports = {
         createNewUser,
         login,
@@ -145,5 +137,4 @@ const hello = async (req, res) => {
         resetPassword,
         forgotPassword,
         getAllUserEmailsSorted,
-        hello,
     };

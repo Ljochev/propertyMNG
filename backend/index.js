@@ -8,16 +8,15 @@ const {
     resetPassword,
     forgotPassword,
     getAllUserEmailsSorted,
-    hello,
 } = require("./handlers/auth");
 
 const { 
-    createNewRecepie,
-    updateNewRecepie,
-    getRecepieById,
-    deleteRecepie,
-    getAllRecepiesSortedByName,
- } = require("./handlers/recepies");
+    createNewReservation,
+    updateNewReservation,
+    getReservationById,
+    deleteReservation,
+    getAllReservationsSortedByName,
+ } = require("./handlers/reservations");
 
 
 require("./pkg/db/index");
@@ -36,12 +35,10 @@ app.use(
 "/api/user/login",
 "/api/user/reset_password",
 "/api/user/forgot_password",
-"/",
         ],
     })
 );
 //auth user routs
-app.get("/", hello);
 app.get("/api/user/refresh-token", refreshToken);
 app.post("/api/user/register", createNewUser);
 app.post("/api/user/login", login);
@@ -52,11 +49,11 @@ app.get("/api/user/sortedEmails", getAllUserEmailsSorted);
 
 
 //recepies routs
-app.post("/api/recepies/create", createNewRecepie);
-app.put("/api/recepies/update/:id",updateNewRecepie);
-app.get("/api/recepie/id/:id", getRecepieById);
-app.delete("/api/recepie/id/:id", deleteRecepie);
-app.get("/api/recepie/name", getAllRecepiesSortedByName);
+app.post("/api/reservations", createNewReservation);
+app.put("/api/reservations/update/:id",updateNewReservation);
+app.get("/api/reservations/:id", getReservationById);
+app.delete("/api/reservations/:id", deleteReservation);
+app.get("/api/reservations", getAllReservationsSortedByName);
 
 
 
