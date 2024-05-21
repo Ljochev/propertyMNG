@@ -57,7 +57,7 @@ const login = async (req, res) => {
             fullname: account.fullname,
             email: account.email,
             id: account._id,
-            exp: new Date().getTime() / 1000 + 60 * 60,
+            exp: new Date().getTime() / 1000 + 60 * 5,
         };
         const token = jwt.sign(paylod, `${process.env.jwt_secret}`);
         if (token) {
