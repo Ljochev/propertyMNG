@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require("express");
+cors = require('cors');
 const { expressjwt: jwt } = require("express-jwt");
 const {
     createNewUser,
@@ -22,6 +23,7 @@ const {
 require("./pkg/db/index");
 
 const app = express();
+app.use(cors());
 
 app.use(express.json());
 app.use(

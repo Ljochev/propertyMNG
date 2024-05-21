@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const LoginPage = ({}) => {
@@ -8,6 +8,8 @@ const LoginPage = ({}) => {
 
     const handleLogin = async (e) => {
         e.preventDefault()
+    console.log("I.m hereeee");
+
         const data = await fetch('https://property-mng.vercel.app/api/user/login', { // ova e prasahanje za interview
             method: 'POST',
             headers:{
@@ -23,7 +25,7 @@ const LoginPage = ({}) => {
             })
         })
         const jwt_token = await data.json()
-            console.log(jwt_token.token);
+        console.log(jwt_token.token);
         if(jwt_token) {
             localStorage.setItem('jwt_token', jwt_token.token)
             navigate('/')
