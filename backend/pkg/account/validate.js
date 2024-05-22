@@ -4,7 +4,6 @@ const AccountRegister = {
 email: "required|email",
 password: "required|string",
 confirmPassword: "required|string",
-fullName: "required|string",
 };
 
 const AccountLogin = {

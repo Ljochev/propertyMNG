@@ -57,7 +57,7 @@ const login = async (req, res) => {
             fullname: account.fullname,
             email: account.email,
             id: account._id,
-            exp: new Date().getTime() / 1000 + 60 * 5,
+            exp: new Date().getTime() / 1000 + 60 * 60,
         };
         const token = jwt.sign(paylod, `${process.env.jwt_secret}`);
         if (token) {
@@ -73,7 +73,7 @@ const refreshToken = async (req, res) => {
     try { 
         const payload = {
             ...req.auth,
-            exp:  new Date().getTime() / 1000 + 7 * 24 * 60 * 60,
+            exp:  new Date().getTime() / 1000 + 60 * 60,
         };
         const token = jwt.sign(payload, `${process.env.jwt_secret}`);
         return res.status(200).send({ token });

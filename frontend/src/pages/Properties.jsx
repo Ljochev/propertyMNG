@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
+import CreateListing from './CreateListing'
 
-const HomePage = () => {
+const Properties = () => {
 
     useEffect(() => {
         const fetchData = async() => {
 
-        const data = await fetch('http://localhost:3000/api/recepie/name', {
+        const data = await fetch('https://property-mng.vercel.app/api/reservations', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('jwt_token')}`,
@@ -20,9 +21,10 @@ const HomePage = () => {
 
     }, [])
 
+    
   return (
-    <div>HomePage</div>
+    <button onClick={<CreateListing/>}>Create new booking</button>
   )
 }
 
-export default HomePage
+export default Properties

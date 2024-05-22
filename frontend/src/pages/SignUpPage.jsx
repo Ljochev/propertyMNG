@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import getUrl from '../../config';
-const LoginPage = ({}) => {
+
+const SignUpPage = ({}) => {
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleLogin = async (e) => {
+    const handleSignup = async (e) => {
         e.preventDefault()
-        const data = await fetch(getUrl('/api/user/login'), {
+        const data = await fetch(getUrl('/api/user/register'), {
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'
@@ -16,31 +18,38 @@ const LoginPage = ({}) => {
 
             body: JSON.stringify({
                 email,
-                password
+                password,
+                confirmPassword,
+                fullName
             })
         })
         const jwt_token = await data.json()
         if(jwt_token) {
-            localStorage.setItem('jwt_token', jwt_token.token)
-            navigate('/properties')
+            console.log(jwt_token);
+            navigate('/login')
         }
     }
 
   return (
     <div>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleSignup}>
             <input value={email} 
             onChange={(e) => setEmail(e.target.value)} 
             type="text" placeholder='email'/>
             <br/>
             <input value={password} 
             onChange={(e) => setPassword(e.target.value)} 
-            type="text" placeholder='password'/>
+            type="password" placeholder='password'/>
             <br/>
-            <button>Login</button>
+            <input value={confirmPassword} 
+            onChange={(e) => setConfirmPassword(e.target.value)} 
+            type="password" placeholder='Confirm password'/>
+            <br/>
+            <button>Signup</button>
         </form>
     </div>
   )
 }
 
-export default LoginPage
+
+export default SignUpPage

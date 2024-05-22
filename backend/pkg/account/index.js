@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const accountSchema = mongoose.Schema({
 email: String,
 password: String,
-fullName: String,
 });
 
 const Account = mongoose.model("Account", accountSchema, "accounts");
