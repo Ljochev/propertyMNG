@@ -2,7 +2,7 @@ const { Validator } = require("node-input-validator");
 
 const ReservationCreate = {
 name: "required|string",
-timedate: "date",
+timedate: "number",
 email: "email",
 phoneNumber: "string",
 country: "string",
@@ -14,7 +14,7 @@ partyOf: "number",
 
 const ReservationUpdate = {
     name: "string",
-    timedate: "date",
+    timedate: "number",
     email: "email",
     phoneNumber: "string",
     country: "string",

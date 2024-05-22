@@ -4,10 +4,12 @@ import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import Properties from './pages/Properties'
 import SignUpPage from './pages/SignUpPage'
+import CreateListing from './pages/CreateListing'
 import ProtectedRoute from './pages/ProtectedRoute'
 import { useEffect } from 'react'
 import { useJwt } from "react-jwt";
 import { jwtDecode } from "jwt-decode";
+
 
 
 function App() {
@@ -34,6 +36,11 @@ function App() {
         <Route path='/properties' element={
         <ProtectedRoute>
           <Properties/>
+        </ProtectedRoute>
+        } />
+      <Route path='/createlisting' element={
+        <ProtectedRoute>
+          <CreateListing/>
         </ProtectedRoute>
         } />
       </Routes>

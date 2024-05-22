@@ -18,6 +18,7 @@ partyOf: Number,
 const Reservation = mongoose.model("Reservation", reservationSchema, "reservations");
 
 const createReservation = async (reservation) => {
+    console.log("From DB",reservation)
 const newReservation = new Reservation(reservation);
 return await newReservation.save();
 };
