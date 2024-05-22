@@ -45,42 +45,42 @@ const CreateListing = () => {
   return (
     <div>
         <form onSubmit={handleCreate}>
-            <label for="name">Full Name </label>
+            <label htmlFor="name">Full Name </label>
             <input value={name} id="name"
             onChange={(e) => setName(e.target.value)} 
             type="text" placeholder='Full Name'/>
             <br/>
-            <label for="timedate">Date </label>
+            <label htmlFor="timedate">Date </label>
             <input value={timedate} id="timedate"
             onChange={(e) => setTimedate(e.target.value)} 
             type="date"/>
             <br/>
-            <label for="email">email </label>
+            <label htmlFor="email">email </label>
             <input value={email} id="email"
             onChange={(e) => setEmail(e.target.value)} 
             type="text" placeholder='someone@something.com'/>
             <br/>
-            <label for="phoneNumber">Phone number </label>
+            <label htmlFor="phoneNumber">Phone number </label>
             <input value={phoneNumber} id="phoneNumber"
             onChange={(e) => setPhoneNumber(e.target.value)} 
             type="tel" placeholder='phoneNumber'/>
             <br/>
-            <label for="country">Country </label>
+            <label htmlFor="country">Country </label>
             <input value={country} id="country"
             onChange={(e) => setCountry(e.target.value)} 
             type="text" placeholder='Country'/>
             <br/>
-            <label for="price">Price </label>
+            <label htmlFor="price">Price </label>
             <input value={price} id="price"
             onChange={(e) => setPrice(e.target.value)} 
-            type="currency" placeholder='Price'/>
+            type="number" placeholder='Price'/>
             <br/>
-            <label for="bookingSource">Booking source </label>
+            <label htmlFor="bookingSource">Booking source </label>
             <input value={bookingSource} id="bookingSource"
             onChange={(e) => setBookingSource(e.target.value)} 
             type="text" placeholder='BookingSource'/>
             <br/>
-            <label for="partyOf">Number of people </label>
+            <label htmlFor="partyOf">Number of people </label>
             <input value={partyOf} id="partyOf"
             onChange={(e) => setPartyOf(e.target.value)} 
             type="number" placeholder='Number of people'/>
