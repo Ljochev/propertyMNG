@@ -6,7 +6,7 @@ const {
     createReservation,
     updateReservation,
     removeReservation,
-    listSortetName,
+    listSortedName,
     getOneReservationById,
     } = require("../pkg/reservations/index");
 
@@ -60,7 +60,7 @@ const getAllReservationsSortedByName = async (req, res) => {
     try {
         // console.log(req.auth.id);
         console.log(req.query.name);
-        const reservation = await listSortetName(req.auth.id.toString());
+        const reservation = await listSortedName(req.auth.id.toString());
         return res.status(200).send(reservation);
     } catch (error) {
         return res.status(500).send("Internal server error!");

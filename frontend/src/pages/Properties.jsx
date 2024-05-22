@@ -19,7 +19,9 @@ const Properties = () => {
             },
 
         })
+
         setReservations(await data.json());
+        console.log(reservations);
     }
 
     fetchData()
@@ -43,6 +45,8 @@ const Properties = () => {
         <th>Price</th>
         <th>BookingSource</th>
         <th>People</th>
+        <th></th>
+        <th></th>
     </tr>
     {reservations.map(res => <Reservation reservation={res} /> )}
     </table>

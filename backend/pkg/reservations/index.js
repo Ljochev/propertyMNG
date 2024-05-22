@@ -4,6 +4,7 @@ const reservationSchema = mongoose.Schema({
     user_id: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: "Account",
+        required: true
     },
 name: String,
 timedate: Date,
@@ -31,12 +32,14 @@ const removeReservation = async (id) => {
 return await Reservation.deleteOne({_id: id});
 };
 
-const listSortetName = async (userId) => {
+const listSortedName = async (userId) => {
 return await Reservation.find({user_id: userId}).sort({name: 1});
 };
 
 const getOneReservationById = async (id) => {
     // console.log("I'm in getOneReservationById");
+    console.log("I'm in getOneReservationById", id);
+
 return await Reservation.findOne({ _id: id});
 };
 
@@ -44,7 +47,7 @@ module.exports = {
 createReservation,
 updateReservation,
 removeReservation,
-listSortetName,
+listSortedName,
 getOneReservationById,
 };
 
