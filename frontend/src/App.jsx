@@ -9,6 +9,7 @@ import ProtectedRoute from './pages/ProtectedRoute'
 import { useEffect } from 'react'
 import { useJwt } from "react-jwt";
 import { jwtDecode } from "jwt-decode";
+import Header from './components/Header'
 
 
 
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <>
+    <Header/>
       <Routes>
       <Route path='/' element={<HomePage />} />
         <Route path='/login' element={<LoginPage />} />

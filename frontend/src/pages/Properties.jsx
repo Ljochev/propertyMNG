@@ -37,7 +37,7 @@ const Properties = () => {
     <>
     <Logout/>
     <button onClick={handleCreateListing}>Create new booking</button>
-    <table>
+    <table className='tableClass'>
         <thead>
           <tr>
             <th>Name</th>

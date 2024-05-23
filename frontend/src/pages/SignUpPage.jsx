@@ -46,7 +46,7 @@ const SignUpPage = () => {
   };
 
   return (
-    <div>
+    <div className='signupClass'>
       <form onSubmit={handleSignup}>
         <label htmlFor="fullName">Full name: </label>
         <input
