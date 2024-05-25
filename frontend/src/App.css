@@ -13,6 +13,7 @@
   position:sticky;
   top: 0;
 }
+
 .tableClass {
 background-color: rgb(241, 224, 224, 0.05);
 border-radius: 1em;
@@ -28,18 +29,22 @@ margin: 5px 0 5px 0 ;
 button {
   width:fit-content;
   border-radius: 1em;
+  font-size: 0.8em;
   border: 1px solid transparent;
   padding: 0.3em 0.6em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #9a9a9a;
+  font-size: 0.8em;
+  color: white;
+  background-color: #000000;
+  box-shadow:  white 0px 0px 1px 0px inset;
+  transition: box-shadow 0.3s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.6);
   cursor: pointer;
-  transition: border-color 0.25s;
-box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 6px;
-
 }
 button:hover {
-  border-color: #ffffff;
-box-shadow: rgba(0, 0, 0, 0.3) #ffffff;
+  border: 1px solid white;
+  box-shadow:  white 0px 0px 9px 0px inset;
+  transition: box-shadow 0.4s ease-in-out;
 }

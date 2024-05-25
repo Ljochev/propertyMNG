@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import getUrl from '../../config';
+import './properties.css'
 
 
 const LoginPage = () => {
@@ -39,9 +40,10 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleLogin}>
-        <label htmlFor="email">Email: </label>
+  
+      <form className='signupClass' onSubmit={handleLogin} >
+        <div className='form-group'>
+        {/* <label htmlFor="email">Email: </label> */}
         <input
           value={email}
           id="email"
@@ -50,8 +52,9 @@ const LoginPage = () => {
           placeholder="someone@somewhere.com"
           required
         />
-        <br />
-        <label htmlFor="password">Password: </label>
+        </div>
+        <div className='form-group'>
+        {/* <label htmlFor="password">Password: </label> */}
         <input
           value={password}
           id="password"
@@ -60,11 +63,11 @@ const LoginPage = () => {
           placeholder="password"
           required
         />
-        <br />
+        </div>
         <button type="submit">Login</button>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
-    </div>
+    
   );
 };
 

@@ -9,7 +9,7 @@ const DeleteButton = ({reservation, removeReservation}) => {
     const handleDelete = async (e) => {
         removeReservation(reservation);
         e.preventDefault()
-        const data = await fetch(getUrl(`/api/reservations/${reservation}`), {
+        await fetch(getUrl(`/api/reservations/${reservation}`), {
             method: 'DELETE',
             headers:{
                 'Authorization': `Bearer ${localStorage.getItem('jwt_token')}`,

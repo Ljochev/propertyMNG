@@ -3,6 +3,7 @@ import getUrl from '../../config'
 import { useNavigate } from 'react-router-dom'
 import Reservation from '../components/Reservation'
 import PropTypes from 'prop-types';
+import './properties.css';
 
 
 
@@ -34,7 +35,7 @@ const Properties = () => {
     
   return (
     <>
-    <button onClick={handleCreateListing}>Create new booking</button>
+    <button onClick={handleCreateListing}>Create new reservation</button>
     <table className='tableClass'>
         <thead>
           <tr>

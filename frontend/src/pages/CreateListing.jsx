@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import getUrl from '../../config'
+import './properties.css'
 const CreateListing = () => {
 
     const [name, setName] = useState('');
@@ -43,10 +44,10 @@ const CreateListing = () => {
 
 
   return (
-    <div>
+    <div className='create-reservation'>
     <form className="createListing" onSubmit={handleCreate}>
     <div className="form-group">
-        <label htmlFor="name">Full Name</label>
+        {/* <label htmlFor="name">Full Name</label> */}
         <input
             value={name}
             id="name"
@@ -56,7 +57,7 @@ const CreateListing = () => {
         />
     </div>
     <div className="form-group">
-        <label htmlFor="timedate">Date</label>
+        {/* <label htmlFor="timedate">Date</label> */}
         <input
             value={timedate}
             id="timedate"
@@ -65,7 +66,7 @@ const CreateListing = () => {
         />
     </div>
     <div className="form-group">
-        <label htmlFor="email">Email</label>
+        {/* <label htmlFor="email">Email</label> */}
         <input
             value={email}
             id="email"
@@ -75,7 +76,7 @@ const CreateListing = () => {
         />
     </div>
     <div className="form-group">
-        <label htmlFor="phoneNumber">Phone Number</label>
+        {/* <label htmlFor="phoneNumber">Phone Number</label> */}
         <input
             value={phoneNumber}
             id="phoneNumber"
@@ -85,7 +86,7 @@ const CreateListing = () => {
         />
     </div>
     <div className="form-group">
-        <label htmlFor="country">Country</label>
+        {/* <label htmlFor="country">Country</label> */}
         <input
             value={country}
             id="country"
@@ -95,7 +96,7 @@ const CreateListing = () => {
         />
     </div>
     <div className="form-group">
-        <label htmlFor="price">Price</label>
+        {/* <label htmlFor="price">Price</label> */}
         <input
             value={price}
             id="price"
@@ -105,7 +106,7 @@ const CreateListing = () => {
         />
     </div>
     <div className="form-group">
-        <label htmlFor="bookingSource">Booking Source</label>
+        {/* <label htmlFor="bookingSource">Booking Source</label> */}
         <input
             value={bookingSource}
             id="bookingSource"
@@ -115,7 +116,7 @@ const CreateListing = () => {
         />
     </div>
     <div className="form-group">
-        <label htmlFor="partyOf">Number of People</label>
+        {/* <label htmlFor="partyOf">Number of People</label> */}
         <input
             value={partyOf}
             id="partyOf"

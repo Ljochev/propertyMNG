@@ -1,4 +1,4 @@
-.signupClass {
+/* .signupClass {
     margin: 10%;
     display: flex;
     flex-direction: column;
@@ -9,15 +9,19 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 5px;
-    margin: 5px;
+    padding: 1px;
+    margin: 4px;
     background-color: rgba(207, 224, 249, 0.886);
-    border-radius: 1em;
+    border-radius: 0.6em;
 
  }
  .form-group input{
     padding: 3;
     margin: 5px;
     border: 0;
- }
+    background-color: rgba(207, 224, 249, 0.886);
+ } */
 
+ .form-group input:focus{
+    /* background-color: rgb(223, 236, 255); */
+}
