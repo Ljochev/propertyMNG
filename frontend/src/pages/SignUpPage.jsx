@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import getUrl from '../../config';
+import './signUpPage.css'
 
 const SignUpPage = () => {
   const [email, setEmail] = useState('');
@@ -46,9 +47,9 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className='signupClass'>
-      <form onSubmit={handleSignup}>
-        <label htmlFor="fullName">Full name: </label>
+      <form className='signupClass' onSubmit={handleSignup}>
+      <div className="form-group">
+        {/* <label htmlFor="fullName">Full name: </label> */}
         <input
           value={fullName}
           id="fullName"
@@ -57,8 +58,9 @@ const SignUpPage = () => {
           placeholder="Your name"
           required
         />
-        <br />
-        <label htmlFor="email">Email: </label>
+        </div>
+        <div className="form-group">
+        {/* <label htmlFor="email">Email: </label> */}
         <input
           value={email}
           id="email"
@@ -67,8 +69,9 @@ const SignUpPage = () => {
           placeholder="someone@somewhere.com"
           required
         />
-        <br />
-        <label htmlFor="password">Password: </label>
+        </div>
+        <div className="form-group">
+        {/* <label htmlFor="password">Password: </label> */}
         <input
           value={password}
           id="password"
@@ -77,8 +80,9 @@ const SignUpPage = () => {
           placeholder="Password"
           required
         />
-        <br />
-        <label htmlFor="confirmPassword">Confirm Password: </label>
+        </div>
+        <div className="form-group">
+        {/* <label htmlFor="confirmPassword">Confirm Password: </label> */}
         <input
           value={confirmPassword}
           id="confirmPassword"
@@ -87,11 +91,10 @@ const SignUpPage = () => {
           placeholder="Confirm Password"
           required
         />
-        <br />
+        </div>
         <button type="submit">Signup</button>
         {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
-    </div>
   );
 };
 

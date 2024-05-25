@@ -52,7 +52,7 @@ app.get("/api/user/sortedEmails", getAllUserEmailsSorted);
 
 //recepies routs
 app.post("/api/reservations", createNewReservation);
-app.put("/api/reservations/update/:id",updateNewReservation);
+app.put("/api/reservations/:id",updateNewReservation);
 app.get("/api/reservations/:id", getReservationById);
 app.delete("/api/reservations/:id", deleteReservation);
 app.get("/api/reservations", getAllReservationsSortedByName);

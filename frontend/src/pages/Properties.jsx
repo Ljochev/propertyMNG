@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import getUrl from '../../config'
 import { useNavigate } from 'react-router-dom'
 import Reservation from '../components/Reservation'
-import Logout from '../components/Logout'
 import PropTypes from 'prop-types';
 
 
@@ -35,7 +34,6 @@ const Properties = () => {
     
   return (
     <>
-    <Logout/>
     <button onClick={handleCreateListing}>Create new booking</button>
     <table className='tableClass'>
         <thead>

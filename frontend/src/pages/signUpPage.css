@@ -1,0 +1,23 @@
+.signupClass {
+    margin: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+ .form-group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    margin: 5px;
+    background-color: rgba(207, 224, 249, 0.886);
+    border-radius: 1em;
+
+ }
+ .form-group input{
+    padding: 3;
+    margin: 5px;
+    border: 0;
+ }
+

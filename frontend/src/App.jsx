@@ -1,5 +1,5 @@
 import './App.css'
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom' 
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import Properties from './pages/Properties'
@@ -31,6 +31,7 @@ function App() {
   return (
     <>
     <Header/>
+    <div className='bodyClass'>
       <Routes>
       <Route path='/' element={<HomePage />} />
         <Route path='/login' element={<LoginPage />} />
@@ -46,7 +47,8 @@ function App() {
         </ProtectedRoute>
         } />
       </Routes>
-    </>
+      </div>
+      </>
   )
 }
 
