@@ -35,7 +35,6 @@ const SignUpPage = () => {
         throw new Error('Signup failed');
       }
 
-      const jwt_token = await response.json();
         navigate('/login');
     } catch (error) {
       setError('Failed to sign up. Please check your details and try again.');
