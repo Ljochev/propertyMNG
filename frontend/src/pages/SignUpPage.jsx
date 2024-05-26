@@ -48,9 +48,9 @@ const SignUpPage = () => {
 
   return (
       <form className='signupClass' onSubmit={handleSignup}>
-      <div className="form-group">
+      {/* <div className="form-group"> */}
         {/* <label htmlFor="fullName">Full name: </label> */}
-        <input
+        {/* <input
           value={fullName}
           id="fullName"
           onChange={(e) => setFullName(e.target.value)}
@@ -58,7 +58,7 @@ const SignUpPage = () => {
           placeholder="Your name"
           required
         />
-        </div>
+        </div> */}
         <div className="form-group">
         {/* <label htmlFor="email">Email: </label> */}
         <input
