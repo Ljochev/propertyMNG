@@ -27,7 +27,7 @@ const SignUpPage = () => {
         body: JSON.stringify({
           email,
           password,
-          fullName,
+          confirmPassword,
         }),
       });
 
