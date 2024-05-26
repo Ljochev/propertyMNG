@@ -36,11 +36,7 @@ const SignUpPage = () => {
       }
 
       const jwt_token = await response.json();
-
-      if (jwt_token) {
-        console.log(jwt_token);
-        navigate('/properties');
-      }
+        navigate('/login');
     } catch (error) {
       setError('Failed to sign up. Please check your details and try again.');
     }
