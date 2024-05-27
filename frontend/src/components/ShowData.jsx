@@ -23,8 +23,8 @@ const ShowData = ({name, lastName, phoneNumber, birthday, email, myPicture}) => 
     </table>
 
     <div className='socialSection'>
-        <button className='socialButton'><a href="https://github.com/Ljochev">GitHub</a></button>
-        <button className='socialButton'><a href="https://www.linkedin.com/in/kostadin-ljochev-6b067092/">Linkedin</a></button>
+        <button className='socialButton'><a href="https://github.com/Ljochev" target="_blank">GitHub</a></button>
+        <button className='socialButton'><a href="https://www.linkedin.com/in/kostadin-ljochev-6b067092/" target="_blank">Linkedin</a></button>
     </div>
     </div>
   )
