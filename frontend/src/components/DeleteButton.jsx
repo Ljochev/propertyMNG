@@ -3,7 +3,7 @@ import getUrl from '../../config';
 import { useNavigate } from 'react-router-dom'
 
 
-const DeleteButton = ({reservation, removeReservation}) => {
+const DeleteButton = ({reservation, removeReservation, svgImg}) => {
 
     const navigate = useNavigate();
     const handleDelete = async (e) => {
@@ -26,7 +26,7 @@ const DeleteButton = ({reservation, removeReservation}) => {
 
 
   return (
-    <button type="button" onClick={handleDelete}>Delete</button>
+    <button type="button" onClick={handleDelete}><img src={svgImg}/></button>
   )
 }
 

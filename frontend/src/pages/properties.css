@@ -60,6 +60,11 @@ button {
 .reservation-list td {
   text-align: center;
 }
+.reservation-list-top {
+  width: 90%;
+  display: flex;
+justify-content:space-evenly;
+}
 .signupClass {
   display: flex;
   flex-direction: column;
@@ -74,4 +79,10 @@ button {
   min-height: 1em;
   border-radius: 0.4em;
   text-align: center;
+}
+.table-class {
+  max-width: 100%
+}
+button img {
+  height: 1em;
 }

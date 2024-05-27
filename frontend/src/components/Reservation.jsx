@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import DeleteButton from './DeleteButton';
 import Button from './Button';
 import { useNavigate } from 'react-router-dom'
+import editBtn from './../assets/Edit.svg'
+import deleteBtn from './../assets/Delete.svg'
+
 
 const Reservation = ({ reservation, handleRemove }) => {
   const { name, timedate, email, phoneNumber, country, price, bookingSource, partyOf, _id} = reservation;
@@ -25,8 +28,8 @@ const Reservation = ({ reservation, handleRemove }) => {
       <td>{price}</td>
       <td>{bookingSource}</td>
       <td>{partyOf}</td>
-      <td><Button handleFn={handleEdit} btnName={"edit"}/></td>
-      <td><DeleteButton reservation={_id} removeReservation={handleRemove}/></td>
+      <td><Button handleFn={handleEdit} svgImg={editBtn}/></td>
+      <td><DeleteButton reservation={_id} removeReservation={handleRemove} svgImg={deleteBtn}/></td>
     </tr>
   );
 };

@@ -83,12 +83,25 @@ const handleSearchPhoneNumber = (e) => {
     const handleRemove = (id) => {
       setReservations(reservations.filter(reservation => reservation._id !== id));
     }
-    
+    const handleReservation = (e) => {
+      e.preventDefault();
+        const jwt_token = localStorage.getItem('jwt_token');
+        if (!jwt_token || isExpired) 
+          localStorage.removeItem('jwt_token');
+    if (!jwt_token || isExpired) {
+        alert("Please Login to list propertyes")
+      navigate('/');
+    } else {
+      navigate('/Properties');
+    }
+  };
   return (
     <div className='reservation-list'>
-    
+    <div className='reservation-list-top'>
     <Button handleFn={handleCreateListing} btnName={'Create new reservation'}/>
-    <table className='tableClass'>
+    <Button handleFn={handleReservation} btnName={'View all reservations'}/>
+    </div>
+    <table className='table-class'>
         <thead>
           <tr>
             <th>Name</th>
