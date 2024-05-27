@@ -54,7 +54,6 @@ const Properties = () => {
 
 }
 
-
 const handleSearchName = (e) => {
   e.preventDefault();
   handleSearch('name', name);
@@ -83,23 +82,15 @@ const handleSearchPhoneNumber = (e) => {
     const handleRemove = (id) => {
       setReservations(reservations.filter(reservation => reservation._id !== id));
     }
-    const handleReservation = (e) => {
+    const handleViewAll = (e) => {
       e.preventDefault();
-        const jwt_token = localStorage.getItem('jwt_token');
-        if (!jwt_token || isExpired) 
-          localStorage.removeItem('jwt_token');
-    if (!jwt_token || isExpired) {
-        alert("Please Login to list propertyes")
-      navigate('/');
-    } else {
-      navigate('/Properties');
-    }
-  };
+      handleSearch('','');
+    };
   return (
     <div className='reservation-list'>
     <div className='reservation-list-top'>
     <Button handleFn={handleCreateListing} btnName={'Create new reservation'}/>
-    <Button handleFn={handleReservation} btnName={'View all reservations'}/>
+    <Button handleFn={handleViewAll} btnName={'View all reservations'}/>
     </div>
     <table className='table-class'>
         <thead>
