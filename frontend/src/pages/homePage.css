@@ -1,4 +1,85 @@
 .home-page {
+    width: 90%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+            margin: 20px;
 }
+.home-page ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.infoCard {
+    font-size: 0.8em;
+    margin-bottom: 1em;
+    margin-top: 4em;
+    position: relative;
+    background-color: #cbd8c9;
+    min-width: 18em;
+    box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset,rgba(0, 0, 0, 0.4) 8px 8px 8px -5px;
+    border-radius: 0.3em;
+  }
+  .infoCard table {
+    margin: 0 1em 0 4em;
+  }
+  .infoPicture {
+    width: 80px;
+    position: absolute;
+    top: -35px;
+    left: -35px;
+    max-width: 2in;
+    border-radius: 1in;
+    box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset,rgba(0, 0, 0, 0.4) 8px 8px 8px -5px;
+  }
+  
+  .nameCard {
+    position: relative;
+    margin: 0 0 0 4em;
+    color: #12470D;
+    font-style: italic;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow:  0px 0px 2px #12470D;
+  }
+  .nameCard h2 {
+    margin: 0;
+    padding: 0.5em 0 0 0 ;
+  
+  }
+  .dobCard {
+    margin: 0;
+    padding: 0;
+    color: #12470D;
+    text-align: left;
+    font-weight: 550;
+  }
+  .dobCard1 {
+    margin: 0;
+    padding: 0;
+    color: #12470D;
+  }
+  .socialButton {
+    border-radius: 0;
+    background-color: white;
+    border: 1px solid #12470D;
+    border-radius: 0.5em;
+    box-shadow: rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  
+  
+  }
+  .socialButton a{
+    color: #12470D;
+    text-decoration: none;
+  }
+  
+  .socialSection button:hover {
+    border-color:  #56a74d;
+  }
+  .socialSection {
+    padding: 1em 0 1em 0;
+    display: flex;
+    justify-content: space-around;
+  }

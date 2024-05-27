@@ -6,8 +6,9 @@ const {
     createReservation,
     updateReservation,
     removeReservation,
-    listSortedName,
+    listSortedDate,
     getOneReservationById,
+    getReservationsByQuery,
     } = require("../pkg/reservations/index");
 
 
@@ -35,7 +36,7 @@ const updateNewReservation = async (req, res) => {
     }
 };
 
-const getReservationById = async (req, res) => {
+const getReservationsById = async (req, res) => {
     try {
         const reservation = await getOneReservationById(req.params.id);
         return res.status(200).send(reservation);
@@ -56,23 +57,34 @@ const deleteReservation = async (req, res) => {
     }
 };
 
-const getAllReservationsSortedByName = async (req, res) => {
+const getAllReservationsSortedByDate = async (req, res) => {
     try {
-        // console.log(req.auth.id);
-        console.log(req.query.name);
-        const reservation = await listSortedName(req.auth.id.toString());
+        const reservation = await listSortedDate(req.auth.id.toString());
         return res.status(200).send(reservation);
     } catch (error) {
         return res.status(500).send("Internal server error!");
     }
 };
 
+const getReservationsBySearch = async (req, res) => {
+    try {
+        console.log("This is the req.query",req.query);
+        const reservations = await getReservationsByQuery(req.auth.id, req.query);
+        console.log("This is the response",reservations);
+        return res.status(200).send(reservations);
+    } catch (error) {
+        return res.status(500).send("internal server error!");
+    }
+}
+
     module.exports = {
     createNewReservation,
     updateNewReservation,
-    getReservationById,
+    getReservationsById,
     deleteReservation,
-    getAllReservationsSortedByName,
+    getAllReservationsSortedByDate,
+    getOneReservationById,
+    getReservationsBySearch,
     };
 
 

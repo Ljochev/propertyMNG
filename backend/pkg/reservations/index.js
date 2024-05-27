@@ -32,23 +32,25 @@ const removeReservation = async (id) => {
 return await Reservation.deleteOne({_id: id});
 };
 
-const listSortedName = async (userId) => {
-return await Reservation.find({user_id: userId}).sort({name: 1});
+const listSortedDate = async (userId) => {
+return await Reservation.find({user_id: userId}).sort({timedate: 1});
 };
 
 const getOneReservationById = async (id) => {
-    // console.log("I'm in getOneReservationById");
-    console.log("I'm in getOneReservationById", id);
-
 return await Reservation.findOne({ _id: id});
 };
+
+const getReservationsByQuery = async (id, query) => {
+return await Reservation.find({user_id: id,...query});
+}
 
 module.exports = {
 createReservation,
 updateReservation,
 removeReservation,
-listSortedName,
+listSortedDate,
 getOneReservationById,
+getReservationsByQuery,
 };
 
 

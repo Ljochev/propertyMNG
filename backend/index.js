@@ -14,9 +14,10 @@ const {
 const { 
     createNewReservation,
     updateNewReservation,
-    getReservationById,
+    getReservationsById,
     deleteReservation,
-    getAllReservationsSortedByName,
+    getAllReservationsSortedByDate,
+    getReservationsBySearch,
  } = require("./handlers/reservations");
 
 
@@ -26,6 +27,7 @@ const app = express();
 app.use(cors());
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(
     jwt({
         secret: `${process.env.jwt_secret}`,
@@ -53,9 +55,11 @@ app.get("/api/user/sortedEmails", getAllUserEmailsSorted);
 //recepies routs
 app.post("/api/reservations", createNewReservation);
 app.put("/api/reservations/:id",updateNewReservation);
-app.get("/api/reservations/:id", getReservationById);
+app.get("/api/reservations/:id", getReservationsById);
 app.delete("/api/reservations/:id", deleteReservation);
-app.get("/api/reservations", getAllReservationsSortedByName);
+app.get("/api/reservations", getAllReservationsSortedByDate);
+app.get("/api/reservations/search", getReservationsBySearch);
+
 
 
 

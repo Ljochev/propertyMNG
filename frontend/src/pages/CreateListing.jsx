@@ -1,19 +1,53 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { useNavigate, useLocation} from 'react-router-dom'
 import getUrl from '../../config'
 import './properties.css'
+
+const useQuery = () => {
+    return new URLSearchParams(useLocation().search);
+}
+
 const CreateListing = () => {
 
+    const query = useQuery();
+    const searchTerm = useState(query.get('q'));
     const [name, setName] = useState('');
-    const [timedate, setTimedate] = useState(new Date());
+    const [timedate, setTimedate] = useState(new Date().toISOString().slice(0, 10));
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [country, setCountry] = useState('');
     const [price, setPrice] = useState();
     const [bookingSource, setBookingSource] = useState('Booking.com');
     const [partyOf, setPartyOf] = useState();
-
+    const [reservation, setReservation] = useState({});
     const navigate = useNavigate(); 
+
+    console.log("In function for create listing == > ",searchTerm[0] );
+
+    useEffect(() => {
+        if (searchTerm !== null) {
+          const fetchData = async () => {
+            const data = await fetch(getUrl(`/api/reservations/${searchTerm[0]}`), {
+              method: 'GET',
+              headers: {
+                'Authorization': `Bearer ${localStorage.getItem('jwt_token')}`,
+                'Content-Type': 'application/json'
+              }
+            });
+            const result = await data.json();
+            setReservation(result);
+            setName(result.name);
+            setTimedate(new Date(result.timedate).toISOString().slice(0, 10));
+            setEmail(result.email);
+            setPhoneNumber(result.phoneNumber);
+            setCountry(result.country);
+            setPrice(result.price);
+            setBookingSource(result.bookingSource);
+            setPartyOf(result.partyOf);
+          };
+          fetchData();
+        }
+      }, []);
 
     const handleCreate = async (e) => {
         e.preventDefault()
@@ -35,17 +69,39 @@ const CreateListing = () => {
                 partyOf
             })
         })
-
             navigate('/properties')
         }
-    
 
+        const handleEdit = async (e) => {
+            e.preventDefault();
+            const data = await fetch(getUrl(`/api/reservations/${reservation._id}`), {
+              method: 'PUT',
+              headers: {
+                'Authorization': `Bearer ${localStorage.getItem('jwt_token')}`,
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                name,
+                timedate,
+                email,
+                phoneNumber,
+                country,
+                price,
+                bookingSource,
+                partyOf
+              })
+            });
+            navigate('/properties');
+          };
 
 
 
   return (
     <div className='create-reservation'>
-    <form className="createListing" onSubmit={handleCreate}>
+    <form className="createListing" 
+    onSubmit={
+        searchTerm[0]? handleEdit : handleCreate
+        }>
     <div className="form-group">
         {/* <label htmlFor="name">Full Name</label> */}
         <input
@@ -125,7 +181,7 @@ const CreateListing = () => {
             placeholder="Number of People"
         />
     </div>
-    <button type="submit" className="submit-btn">Create</button>
+    <button type="submit" className="submit-btn">{searchTerm[0]? 'Finish edit' : 'Create'}</button>
 </form>
 </div>
   )

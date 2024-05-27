@@ -7,17 +7,22 @@ const DeleteButton = ({reservation, removeReservation}) => {
 
     const navigate = useNavigate();
     const handleDelete = async (e) => {
-        removeReservation(reservation);
-        e.preventDefault()
+      e.preventDefault()
+      try {
         await fetch(getUrl(`/api/reservations/${reservation}`), {
-            method: 'DELETE',
-            headers:{
-                'Authorization': `Bearer ${localStorage.getItem('jwt_token')}`,
-                'Content-Type': 'application/json'
-            }
+          method: 'DELETE',
+          headers:{
+            'Authorization': `Bearer ${localStorage.getItem('jwt_token')}`,
+            'Content-Type': 'application/json'
+          }
         })
+        removeReservation(reservation);
             navigate('/properties')
-    }
+    } catch(err) {
+      alert(err);
+  } 
+
+  }
 
 
   return (
