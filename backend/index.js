@@ -55,10 +55,10 @@ app.get("/api/user/sortedEmails", getAllUserEmailsSorted);
 //recepies routs
 app.post("/api/reservations", createNewReservation);
 app.put("/api/reservations/:id",updateNewReservation);
-app.get("/api/reservations/:id", getReservationsById);
+// app.get("/api/reservations/:id", getReservationsById);
 app.delete("/api/reservations/:id", deleteReservation);
-app.get("/api/reservations", getAllReservationsSortedByDate);
-app.get("/api/reservations/search", getReservationsBySearch);
+// app.get("/api/reservations", getAllReservationsSortedByDate);
+app.get("/api/reservations", getReservationsBySearch);
 
 
 

@@ -37,7 +37,7 @@ const Properties = () => {
   }, []);
 
   const handleSearch = async (key, value) => {
-    const response = await fetch(getUrl(`/api/reservations/search?${key}=${value}`), {
+    const response = await fetch(getUrl(`/api/reservations?${key}=${value}`), {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('jwt_token')}`,

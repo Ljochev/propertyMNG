@@ -41,7 +41,8 @@ return await Reservation.findOne({ _id: id});
 };
 
 const getReservationsByQuery = async (id, query) => {
-return await Reservation.find({user_id: id,...query});
+    console.log("The query will be:",{user_id: id,...query} );
+return await Reservation.find({user_id: id,...query}).sort({timedate: 1});
 }
 
 module.exports = {

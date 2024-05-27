@@ -22,12 +22,10 @@ const CreateListing = () => {
     const [reservation, setReservation] = useState({});
     const navigate = useNavigate(); 
 
-    console.log("In function for create listing == > ",searchTerm[0] );
-
     useEffect(() => {
         if (searchTerm !== null) {
           const fetchData = async () => {
-            const data = await fetch(getUrl(`/api/reservations/${searchTerm[0]}`), {
+            const data = await fetch(getUrl(`/api/reservations?_id=${searchTerm[0]}`), {
               method: 'GET',
               headers: {
                 'Authorization': `Bearer ${localStorage.getItem('jwt_token')}`,
@@ -35,15 +33,16 @@ const CreateListing = () => {
               }
             });
             const result = await data.json();
-            setReservation(result);
-            setName(result.name);
-            setTimedate(new Date(result.timedate).toISOString().slice(0, 10));
-            setEmail(result.email);
-            setPhoneNumber(result.phoneNumber);
-            setCountry(result.country);
-            setPrice(result.price);
-            setBookingSource(result.bookingSource);
-            setPartyOf(result.partyOf);
+            console.log("This is the result",result[0]);
+            setReservation(result[0]);
+            setName(result[0].name);
+            setTimedate(new Date(result[0].timedate).toISOString().slice(0, 10));
+            setEmail(result[0].email);
+            setPhoneNumber(result[0].phoneNumber);
+            setCountry(result[0].country);
+            setPrice(result[0].price);
+            setBookingSource(result[0].bookingSource);
+            setPartyOf(result[0].partyOf);
           };
           fetchData();
         }
