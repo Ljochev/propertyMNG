@@ -16,7 +16,6 @@ const Reservation = ({ reservation, handleRemove }) => {
     console.log(_id);
     navigate(`/createlisting?q=${_id}`)
   }
-
   const formattedDate = new Date(timedate).toLocaleDateString(); // Format date to a readable string
   return (
     <tr>

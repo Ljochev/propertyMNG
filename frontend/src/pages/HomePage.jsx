@@ -17,7 +17,7 @@ const HomePage = () => {
         if (!jwt_token || isExpired) 
           localStorage.removeItem('jwt_token');
     if (!jwt_token || isExpired) {
-        alert("Please Login to list propertyes")
+        alert("Please Login to list properties")
       navigate('/');
     } else {
       navigate('/Properties');

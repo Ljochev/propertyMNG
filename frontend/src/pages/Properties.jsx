@@ -74,6 +74,7 @@ const handleSearchPhoneNumber = (e) => {
   handleSearch('phoneNumber', phoneNumber);
 };
 
+
   const handleCreateListing = (e) => {
     e.preventDefault();
     navigate('/createlisting');
