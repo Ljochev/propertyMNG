@@ -11,10 +11,11 @@ const Reservation = ({ reservation, handleRemove }) => {
   const { name, timedate, email, phoneNumber, country, price, bookingSource, partyOf, _id} = reservation;
   const navigate = useNavigate();
   
-  const handleEdit = (e) => {
+  const handleEdit = (e,reservation) => {
     e.preventDefault();
     console.log(_id);
-    navigate(`/createlisting?q=${_id}`)
+    console.log(reservation)
+    navigate(`/createlisting/?q=${_id}`, { state: { reservation:reservation}});
   }
   const formattedDate = new Date(timedate).toLocaleDateString(); // Format date to a readable string
   return (
@@ -27,7 +28,7 @@ const Reservation = ({ reservation, handleRemove }) => {
       <td>{price}</td>
       <td>{bookingSource}</td>
       <td>{partyOf}</td>
-      <td><Button handleFn={handleEdit} svgImg={editBtn}/></td>
+      <td><Button handleFn={(e)=> (handleEdit(e,reservation))} svgImg={editBtn}/></td>
       <td><DeleteButton reservation={_id} removeReservation={handleRemove} svgImg={deleteBtn}/></td>
     </tr>
   );

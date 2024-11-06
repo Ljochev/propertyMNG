@@ -4,6 +4,9 @@ import getUrl from '../../config'
 import './properties.css'
 
 const useQuery = () => {
+    const {state} = useLocation();
+    const { reservation } = state; // Read values passed on state
+    console.log(reservation);
     return new URLSearchParams(useLocation().search);
 }
 
